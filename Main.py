@@ -49,14 +49,14 @@ def process_coin(coin, cost):
     }
     total_inserted = sum([coin_value[c] * q for c, q in coin.items()])
     change = round(total_inserted - cost, 2)
-
+# [x] Elimnar ese bug
     if change < 0:
         return f"Sorry, that's not enough money. Money refunded.", 0
     elif change == 0:
         return "Transaction successful.", 0
     else:
         return f"Here is ${change} in change.", change
-
+# [ ] Falta esto por consultar
 def make_coffee(drink_type, resources, menu):
     cost = make_drink(drink_type, resources, menu)
     if isinstance(cost, str):
