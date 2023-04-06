@@ -23,8 +23,16 @@ MENU = {
         "cost": 3.0,
     }
 }
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
 end = False
 while not end:
     choice = input("What would you like? (espresso/latte/cappuccino):").lower()
     if choice == "off":
         end = True
+    elif choice == "report":
+        for key in resources:
+            print(f"{key}:{resources[key]}")
