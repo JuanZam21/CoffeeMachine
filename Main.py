@@ -2,6 +2,7 @@ MENU = {
     "espresso": {
         "ingredients": {
             "water": 50,
+            "milk": 400,
             "coffee": 18,
         },
         "cost": 1.5,
@@ -26,7 +27,7 @@ MENU = {
 resources = {
     "water": 20,
     "milk": 200,
-    "coffee": 100,
+    "coffee": 10,
     "money": 0,
 }
 end = False
@@ -38,7 +39,13 @@ while not end:
         for key in resources:
             print(f"{key}:{resources[key]}")
     elif choice == "espresso":
-        for key in resources:
-            if MENU["espresso"]["ingredients"]["water"] > resources[key]:
-                print("Not enought water")
-    #print(f"{key_to_compare} in dict1 is bigger than {key_to_compare} in dict2")
+        for resource in resources:
+            for key in MENU["espresso"]["ingredients"]:
+                if MENU["espresso"]["ingredients"][key] > resources[key]:
+                    print(key)
+                 
+
+
+
+                          
+            
