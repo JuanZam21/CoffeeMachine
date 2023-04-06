@@ -35,6 +35,7 @@ resourcesLeft = []
 end = False  
 
 while not end:
+    
     # prompt the user to input their choice
     choice = input("\n What would you like? (espresso/latte/cappuccino):").lower()
     
