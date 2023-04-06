@@ -1,2 +1,2 @@
 # CoffeMachine
-I made coffe machine simulation with python.
+I made a coffe machine simulation with python.
