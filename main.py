@@ -26,13 +26,31 @@ MENU = {
 
 profit = 0
 resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
+    "water": 30,
+    "milk": 20,
+    "coffee": 10,
 }
 
 resourcesLeft = []  
 end = False  
+
+def enoughResources(drink):    
+    for resource in resources:
+        for key in MENU[drink]["ingredients"]:
+            if MENU[drink]["ingredients"][key] > resources[key]:
+                if not key in resourcesLeft:
+                    resourcesLeft.append(key)
+                print(resourcesLeft)
+            else:
+                return print("Todos los recursos completos")
+    output = f"Resources left: "
+    for i, resource in enumerate(resourcesLeft):
+        if i == len(resourcesLeft) - 1:
+            output += f"and {resource}."
+        else:
+            output += f"{resource}, "
+    return print(output)
+            
 
 while not end:
     
@@ -50,17 +68,7 @@ while not end:
     
     # if the user chooses to order an espresso, check if there are enough resources
     elif choice == "espresso":
-        for resource in resources:
-            for key in MENU["espresso"]["ingredients"]:
-                if MENU["espresso"]["ingredients"][key] > resources[key]:
-                    if not key in resourcesLeft:
-                        resourcesLeft.append(key)
+        enoughResources(choice)
 
         # create an output string with the depleted resources
-        output = f"Resources left: "
-        for i, resource in enumerate(resourcesLeft):
-            if i == len(resourcesLeft) - 1:
-                output += f"and {resource}."
-            else:
-                output += f"{resource}, "
-        print(output)
+        
