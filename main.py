@@ -34,10 +34,12 @@ resources = {
 resourcesLeft = []  
 end = False  
 
+# Define a function to report the current level of resources
 def report():
     for key in resources:
         print(f"{key}:{resources[key]}")
 
+# Define a function to check if there are enough resources to make the selected drink
 def enoughResources(drink):    
     for resource in resources:
         for key in MENU[drink]["ingredients"]:
@@ -57,7 +59,8 @@ def enoughResources(drink):
         return print(output)
     else:
         return 0
-
+    
+# Define a function to process payment for the selected drink
 def payment(drink, coins):
     precio = MENU[drink]["cost"]
     if coins < precio:
@@ -70,6 +73,7 @@ def payment(drink, coins):
         resources["money"] += precio
         return print(f"Here your change: ${change}")
 
+# Define a function to make the selected drink
 def makeCoffe(drink):
     for resource in resources:
         for key in MENU[drink]["ingredients"]:
@@ -89,7 +93,7 @@ while not end:
     elif choice == "report":
         report() 
     
-    # if the user chooses to order an espresso, check if there are enough resources
+    # if the user chooses to order a drink, check if there are enough resources
     elif choice:
         eResources = enoughResources(choice)
         if eResources == 0:
